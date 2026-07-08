@@ -1,35 +1,44 @@
-name: ASP.NET Tests 
- 
-on: 
-  push: 
-    branches: 
-      - main 
- 
-  pull_request: 
-    branches: 
-      - main 
- 
-jobs: 
- 
-  test: 
- 
-    runs-on: ubuntu-latest 
- 
-    steps: 
- 
-      - name: Descargar repositorio 
-        uses: actions/checkout@v4 
- 
-      - name: Instalar .NET 
-        uses: actions/setup-dotnet@v4 
-        with: 
-          dotnet-version: 8.0.x 
- 
-      - name: Restaurar paquetes 
-        run: dotnet restore 
- 
-      - name: Compilar solución 
-        run: dotnet build --no-restore 
- 
-      - name: Ejecutar tests 
-        run: dotnet test --no-build --verbosity normal 
+name: ASP.NET Tests
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restaurar paquetes
+        run: dotnet restore
+
+      - name: Compilar solución
+        run: dotnet build --no-restore
+
+      - name: Ejecutar tests
+        run: dotnet test --no-build --verbosity normal
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    env:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: MyPassword123!
+    options: >-
+      --health-cmd "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P MyPassword123! -Q 'SELECT 1' || exit 1"
+      --health-interval 10s
+      --health-timeout 5s
+      --health-retries 5

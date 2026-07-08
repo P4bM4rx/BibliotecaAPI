@@ -458,3 +458,4 @@ C:\Users\Alumno9\Desktop\BibliotecaAPI\BibliotecaAPI.Tests\bin\Debug\net10.0\Mic
 C:\Users\Alumno9\Desktop\BibliotecaAPI\BibliotecaAPI.Tests\bin\Debug\net10.0\Microsoft.AspNetCore.TestHost.dll
 C:\Users\Alumno9\Desktop\BibliotecaAPI\BibliotecaAPI.Tests\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Alumno9\Desktop\BibliotecaAPI\BibliotecaAPI.Tests\obj\Debug\net10.0\MvcTestingAppManifest.json
+C:\Users\Alumno9\Desktop\BibliotecaAPI\BibliotecaAPI.Tests\obj\Debug\net10.0\BibliotecaAPI.Tests.sourcelink.json
